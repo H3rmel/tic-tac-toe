@@ -20,6 +20,8 @@
   border: var(--border-size-2) solid var(--gray-4);
   border-radius: var(--radius-3);
   padding: var(--size-7);
+  box-shadow: var(--shadow-5);
+  width: min(100% - 2rem, auto);
 }
 
 .row {
@@ -59,6 +61,14 @@
   transition: all .5s var(--ease-5);
 }
 
+.results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+  margin-top: var(--size-2);
+}
+
 button {
   padding: var(--size-2) var(--size-3);
   border-radius: var(--radius-3);
@@ -72,4 +82,27 @@ button:hover {
 
 button:hover, button:focus, button:active {
   outline: 0;
+}
+
+.winner {
+  text-decoration: underline;
+  visibility: hidden;
+}
+
+.winner.show {
+  visibility: visible;
+}
+
+/* Responsivity */
+
+@media (max-width:37.5rem) {
+  .cell {
+    width: var(--size-10);
+    height: var(--size-10);
+    padding: var(--size-7);
+  }
+
+  .results {
+    flex-direction: column;
+  }
 }

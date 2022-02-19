@@ -1,13 +1,17 @@
 // React
 import React, { useState } from "react";
 
-// Css
+// CSS
 import "./App.css";
+
+// Components
+import Title from "./components/Title";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [turn, setTurn] = useState("X");
   const [cells, setCells] = useState(Array(9).fill(""));
-  const [winner, setWinner] = useState();
+  const [winner, setWinner] = useState(null);
 
   const checkWinner = (squares) => {
     let combos = {
@@ -77,6 +81,7 @@ const App = () => {
 
   return (
     <div className="container">
+      <Title title={"Jogo da velha!"}/>
       <div className="tictactoe">
         <p>Vez de: {turn}</p>
         <div className="table">
@@ -96,8 +101,12 @@ const App = () => {
             <Cell number={8} />
           </div>
         </div>
-        <button onClick={() => handleRestart()}>Reiniciar</button>
+        <div className="results">
+          <p className={`winner ${winner ? "show" : ""}`}>{winner} é o vencedor!</p>
+          <button onClick={() => handleRestart()}>Reiniciar</button>
+        </div>
       </div>
+      <Footer/>
     </div>
   );
 };
