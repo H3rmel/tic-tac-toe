@@ -1,6 +1,8 @@
 /* App.css */
 
-.container, .tictactoe, .cell {
+.container,
+.tictactoe,
+.cell {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,34 +45,34 @@
 
 .cell::after {
   background: var(--gray-0);
-    content: "";
-    height: var(--size-15);
-    left: -10rem;
-    opacity: .2;
-    position: absolute;
-    top: -5rem;
-    transform: rotate(35deg);
-    transition: all .5s var(--ease-5);
-    width: var(--size-7);
+  content: "";
+  height: var(--size-15);
+  left: -10rem;
+  opacity: 0.2;
+  position: absolute;
+  top: -5rem;
+  transform: rotate(35deg);
+  transition: all 0.5s var(--ease-5);
+  width: var(--size-7);
 }
 
-.cell:hover::after {
+.cell:active::after {
   left: 120%;
-  transition: all .5s var(--ease-5);
+  transition: all 0.5s var(--ease-5);
 }
 
 .results {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width:100%;
+  width: 100%;
   margin-top: var(--size-2);
 }
 
 button {
   padding: var(--size-2) var(--size-3);
   border-radius: var(--radius-3);
-  transition: .5s var(--ease-5);
+  transition: 0.5s var(--ease-5);
 }
 
 button:hover {
@@ -78,7 +80,9 @@ button:hover {
   color: var(--gray-0);
 }
 
-button:hover, button:focus, button:active {
+button:hover,
+button:focus,
+button:active {
   outline: 0;
 }
 
@@ -93,7 +97,7 @@ button:hover, button:focus, button:active {
 
 /* Responsivity */
 
-@media (max-width:37.5rem) {
+@media (max-width: 37.5rem) {
   .cell {
     width: var(--size-10);
     height: var(--size-10);
@@ -102,5 +106,11 @@ button:hover, button:focus, button:active {
 
   .results {
     flex-direction: column;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .cell::after {
+    background: var(--gray-9);
   }
 }
